@@ -8,7 +8,7 @@ namespace TestProjectSelenium
     public class Tests
     {
         IWebDriver driver;
-        string path = @"\TestProjectSelenium\TestProjectSelenium\drivers\";
+        string path = @"C:\Users\win 10\source\repos\TestProjectSelenium\TestProjectSelenium\drivers\";
 
         [SetUp]
         public void Setup()
@@ -20,20 +20,28 @@ namespace TestProjectSelenium
         public void Test1()
         {
             
-            driver.Url = "http://uitestingplayground.com/";
 
-            string Title = driver.Title;
-            int TitleLength = driver.Title.Length;
-            Console.WriteLine("Title of the page is : " + Title);
-            Console.WriteLine("Length of the Title is : " + TitleLength);
-            string PageSource = driver.PageSource;
-            Console.WriteLine("Page Source of the page is : " + PageSource);
+            Class1 runTests = new Class1("http://uitestingplayground.com/");
+
+            driver = runTests.testingTests(driver);
 
 
-
-            Assert.Pass();
       
         }
+        //testLinkTexts
+
+
+        [Test]
+        public void Test2()
+        {
+
+            Class1 runTests = new Class1("http://uitestingplayground.com/");
+
+            driver = runTests.testLinkTexts(driver);
+
+
+        }
+
 
         [TearDown]
         public void EndTest()
